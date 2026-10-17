@@ -1,0 +1,17 @@
+name: qemu-nvme-sgl-bar
+
+services:
+  vuln:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    init: true
+    restart: "no"
+    ports:
+      - "127.0.0.1:18720:18720"
+    volumes:
+      - ./work:/work
+    environment:
+      WORK_DIR: /work
+    labels:
+      lab: qemu-nvme-sgl-bar
